@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/btn_clear_screen"
+        android:icon="@drawable/ic_connect"
+        app:showAsAction="always"
+        android:title="connect" />
+    <item
+        android:id="@+id/btn_connect"
+        android:icon="@drawable/ic_clear"
+        app:showAsAction="always"
+        android:title="clear" />
+    <item
+        android:id="@+id/btn_undo"
+        android:title="Undo"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/btn_configure"
+        app:showAsAction="never"
+        android:title="Configure" >
+        <menu>
+            <item
+                android:id="@+id/btn_background_color"
+                android:title="Background color"
+                />
+            <item
+                android:id="@+id/btn_text_color"
+                android:title="Text color"
+                />
+
+
+        </menu>
+    </item>
+
+</menu>

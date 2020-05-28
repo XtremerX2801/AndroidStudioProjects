@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.advance.hcmut.cse.flyingfish.MainActivity"
+    android:background="@drawable/splash"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ImageViewSplash"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/splash_icon" />
+
+    <TextView
+        android:id="@+id/TextViewSplash_Icon"
+        android:layout_above="@+id/ImageViewSplash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FLYING FISH"
+        android:textSize="30dp"
+        android:textColor="#ff0000"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/TextViewIntro2"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="JOIN THE GAME NOW"
+        android:textSize="20dp"
+        android:textColor="#ffff00"
+        android:textAlignment="center" />
+
+    <ImageButton
+        android:id="@+id/btnStart"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ImageViewSplash"
+        android:src="@drawable/start_button" />
+
+</RelativeLayout>
