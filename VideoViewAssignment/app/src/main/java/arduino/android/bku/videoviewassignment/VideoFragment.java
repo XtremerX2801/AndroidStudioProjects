@@ -12,7 +12,6 @@ import android.widget.VideoView;
 public class VideoFragment extends Fragment{
     VideoView videoView;
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -115,4 +115,5 @@ tools:context="arduino.android.bku.videoviewassignment.MainActivity">
         </LinearLayout>
     </LinearLayout>
 
+
 </LinearLayout>
