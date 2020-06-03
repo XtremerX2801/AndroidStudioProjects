@@ -1,7 +1,10 @@
 package app.advance.hcmut.cse.smartgardensystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +15,7 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
-    private Context context;
+    private final Context context;
 
     private List<DeviceModel> elements;
     FragmentManager fragmentManager;
@@ -55,31 +58,34 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 //            }
 //        });
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                System.out.println(position);
 //                if (position != -1) {
 //                    Fragment fragment = null;
-//                    System.out.println(elements.get(position).getPath());
-//                    Class fragmentClass = VideoFragment.class;
+//                    Class fragmentClass = DeviceItemFragment.class;
 //                    try {
 //                        fragment = (Fragment) fragmentClass.newInstance();
 //                        Bundle bundle = new Bundle();
 //                        bundle.putString("link", elements.get(position).getPath());
 //                        fragment.setArguments(bundle);
-//                        System.out.println(elements.get(position).getPath());
 //
-//                        fragmentManager.beginTransaction().replace(R.id.fullScreen, fragment).commitAllowingStateLoss();
+//                        fragmentManager.beginTransaction().replace(R.id.device_tab, fragment).commitAllowingStateLoss();
 //                    } catch (InstantiationException e){
 //                        e.printStackTrace();
 //                    } catch (IllegalAccessException e) {
 //                        e.printStackTrace();
-//
 //                    }
 //                }
-//            }
-//        });
+                goToDeviceItem();
+            }
+        });
+    }
+
+    public void goToDeviceItem(){
+        Intent intent = new Intent(context, DeviceItem.class);
+        context.startActivity(intent);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
