@@ -22,7 +22,6 @@ class MainActivity: AppCompatActivity(), IMovieList.View {
     init {
         presenter = MovieListPresenter(this)
     }
-    var position = 0
     private var adapter: MainViewAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,22 +52,12 @@ class MainActivity: AppCompatActivity(), IMovieList.View {
     override fun onResponse(movie: List<Result>?, type: Int?) {
         if (movie == null) return
 
-        val mainRecycler: RecyclerView = findViewById(R.id.mainView)
-
         when(type)
         {
             0->{adapter?.updateSource(movie)
             }
             1->{
                 adapter?.addAll(movie)
-                if(adapter!!.itemCount < position) {
-                    mainRecycler.scrollToPosition(adapter!!.itemCount-1)
-                }
-                else
-                {
-                    if(position!=0) mainRecycler.scrollToPosition(position)
-                }
-
             }
         }
     }
