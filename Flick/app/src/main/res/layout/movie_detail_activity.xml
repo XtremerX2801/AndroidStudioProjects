@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000066"
+    tools:context=".View.MovieDetail">
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/player"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintWidth_percent="1"/>
+
+    <TextView
+        android:id="@+id/detail_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:textSize="30sp"
+        android:textColor="#ffcccc"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player" />
+
+    <TextView
+        android:id="@+id/detail_rating"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Rating: "
+        android:textSize="20sp"
+        android:textColor="#99ffcc"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_title"
+        app:layout_constraintDimensionRatio="3:2"
+        app:layout_constraintWidth_percent="0.3"/>
+
+    <TextView
+        android:id="@+id/detail_release_day"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Release day"
+        android:textSize="20sp"
+        android:textColor="#99ffcc"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@id/detail_rating"
+        app:layout_constraintTop_toBottomOf="@id/detail_title"
+        app:layout_constraintDimensionRatio="4:2"
+        app:layout_constraintWidth_percent="0.4"/>
+
+    <TextView
+        android:id="@+id/detail_original_language"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="En"
+        android:textSize="20sp"
+        android:textColor="#99ffcc"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@id/detail_release_day"
+        app:layout_constraintTop_toBottomOf="@id/detail_title"
+        app:layout_constraintDimensionRatio="3:2"
+        app:layout_constraintWidth_percent="0.3"/>
+
+    <TextView
+        android:id="@+id/detail_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Overview"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_rating" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

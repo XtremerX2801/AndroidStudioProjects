@@ -4,7 +4,7 @@
     android:layout_height="140dp"
     android:orientation="vertical"
     android:focusable="true"
-    android:background="#C1D045"
+    android:background="#8BC34A"
     android:id="@+id/layout_item_view">
 
     <TextView

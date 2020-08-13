@@ -38,7 +38,7 @@ public class RegisterDeviceSetting extends AppCompatActivity{
     }
 
     public void returnDeviceTab(){
-        Intent intent = new Intent(this, RegisterDevice.class);
+        Intent intent = new Intent(this, DeviceTab.class);
         startActivity(intent);
     }
 

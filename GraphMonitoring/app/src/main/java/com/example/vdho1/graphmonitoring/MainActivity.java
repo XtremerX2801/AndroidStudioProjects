@@ -3,6 +3,10 @@ package com.example.vdho1.graphmonitoring;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -24,7 +28,7 @@ import java.nio.charset.Charset;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity{
 
     GraphView graphTemperature, graphLightLevel;
 
@@ -52,7 +56,7 @@ public class MainActivity extends Activity {
     private void getDataFromThingSpeak(){
         OkHttpClient okHttpClient = new OkHttpClient();
         Request.Builder builder = new Request.Builder();
-        String apiURL = "https://api.thingspeak.com/channels/976324/feeds.json?results=5";
+        String apiURL = "https://api.thingspeak.com/channels/1005142/feeds.json?api_key=M2KSJMKX1JR48H00&results=5";
         Request request = builder.url(apiURL).build();
 
         okHttpClient.newCall(request).enqueue(new Callback() {
@@ -110,7 +114,7 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 getDataFromThingSpeak();
-                sendDataToMQTT("2", "Sensor");
+//                sendDataToMQTT("2", "Sensor");
             }
         };
         mTimer.schedule(mTask, 2000, 5000);
@@ -138,28 +142,28 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void sendDataToMQTT(String ID, String value){
-        MqttMessage msg = new MqttMessage();
-        msg.setId(1234);
-        msg.setQos(0);
-        msg.setRetained(true);
-
-        if (ID.equals("1")) {
-            value = "Temperature";
-        } else if (ID.equals("2")) {
-            value = "Light Level";
-        }
-        String data = ID + ":" + value;
-
-        byte[] b = data.getBytes(Charset.forName("UTF-8"));
-        msg.setPayload(b);
-
-        try {
-            mqttHelper.mqttAndroidClient.publish("sensor/RP3", msg);
-
-        }catch (MqttException e){
-        }
-    }
+//    private void sendDataToMQTT(String ID, String value){
+//        MqttMessage msg = new MqttMessage();
+//        msg.setId(1234);
+//        msg.setQos(0);
+//        msg.setRetained(true);
+//
+//        if (ID.equals("1")) {
+//            value = "Temperature";
+//        } else if (ID.equals("2")) {
+//            value = "Light Level";
+//        }
+//        String data = ID + ":" + value;
+//
+//        byte[] b = data.getBytes(Charset.forName("UTF-8"));
+//        msg.setPayload(b);
+//
+//        try {
+//            mqttHelper.mqttAndroidClient.publish("sensor/RP3", msg);
+//
+//        }catch (MqttException e){
+//        }
+//    }
 
 }
 

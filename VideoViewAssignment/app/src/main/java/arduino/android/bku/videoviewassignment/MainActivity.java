@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             fragment = (Fragment) fragmentClass.newInstance();
 
-            Bundle bundle = new Bundle();
-
-            bundle.putString("fragmentTag", fragmentTag);
-
-            fragment.setArguments(bundle);
+//            Bundle bundle = new Bundle();
+//
+//            bundle.putString("fragmentTag", fragmentTag);
+//
+//            fragment.setArguments(bundle);
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragment_content, fragment).commitAllowingStateLoss();
         } catch (Exception e) {

@@ -32,36 +32,26 @@ public class DeviceFragment extends Fragment {
         DeviceModel Dlist = new DeviceModel();
         Dlist.setDeviceName("Device name 1");
         Dlist.setDeviceId("Device Id 1");
-        Dlist.setDeviceType("Device Type 1");
-        Dlist.setUserId("User ID 1");
         aList.add(Dlist);
 
         Dlist = new DeviceModel();
         Dlist.setDeviceName("Device name 2");
         Dlist.setDeviceId("Device Id 2");
-        Dlist.setDeviceType("Device Type 2");
-        Dlist.setUserId("User ID 2");
         aList.add(Dlist);
 
         Dlist = new DeviceModel();
         Dlist.setDeviceName("Device name 3");
         Dlist.setDeviceId("Device Id 3");
-        Dlist.setDeviceType("Device Type 3");
-        Dlist.setUserId("User ID 3");
         aList.add(Dlist);
 
         Dlist = new DeviceModel();
         Dlist.setDeviceName("Device name 4");
         Dlist.setDeviceId("Device Id 4");
-        Dlist.setDeviceType("Device Type 4");
-        Dlist.setUserId("User ID 4");
         aList.add(Dlist);
 
         Dlist = new DeviceModel();
         Dlist.setDeviceName("Device name 5");
         Dlist.setDeviceId("Device Id 5");
-        Dlist.setDeviceType("Device Type 5");
-        Dlist.setUserId("User ID 5");
         aList.add(Dlist);
 
         fragmentManager = getFragmentManager();

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/device_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/smartGarden"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#8BC34A"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1">
+
+            <ImageButton
+                android:id="@+id/btn_item_home"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/home"
+                android:background="#8BC34A"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Smart gardening app"
+                android:textSize="24sp"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1">
+
+            <ImageButton
+                android:id="@+id/btn_menu2"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/button_menu"
+                android:background="#8BC34A"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/registerDeviceSetting"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/smartGarden">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:text="User: "
+            android:textColor="#C1D045"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/username_fill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingTop="20dp"
+            android:text="User name"
+            android:textColor="#C1D045"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtDeviceInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DEVICE INFORMATION:"
+        android:textColor="#C1D045"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerDeviceSetting" />
+
+    <TextView
+        android:id="@+id/txtInputName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Input Name:"
+        android:textColor="#C1D045"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDeviceInfo"/>
+
+    <EditText
+        android:id="@+id/inputName_fill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txtInputName"
+        app:layout_constraintTop_toBottomOf="@+id/txtDeviceInfo"/>
+
+    <TextView
+        android:id="@+id/txtInputID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Input ID:"
+        android:textColor="#C1D045"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputName"/>
+
+    <EditText
+        android:id="@+id/inputID_fill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txtInputID"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputName"/>
+
+    <TextView
+        android:id="@+id/txtInputType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Input Type::"
+        android:textColor="#C1D045"
+        android:textSize="20sp"
+        android:paddingLeft="100dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toEndOf="@+id/inputID_fill"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputName"/>
+
+    <EditText
+        android:id="@+id/inputType_fill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txtInputType"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputName"/>
+
+    <TextView
+        android:id="@+id/txtOutputName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Output Name:"
+        android:textColor="#C1D045"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputID"/>
+
+    <EditText
+        android:id="@+id/outputName_fill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txtOutputName"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputID"/>
+
+    <TextView
+        android:id="@+id/txtOutputID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Output ID:"
+        android:textColor="#C1D045"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtOutputName"/>
+
+    <EditText
+        android:id="@+id/outputID_fill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txtOutputID"
+        app:layout_constraintTop_toBottomOf="@+id/txtOutputName"/>
+
+    <TextView
+        android:id="@+id/txtOutputType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Output Type::"
+        android:textColor="#C1D045"
+        android:textSize="20sp"
+        android:paddingLeft="100dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="@+id/outputID_fill"
+        app:layout_constraintTop_toBottomOf="@+id/txtOutputName"/>
+
+    <EditText
+        android:id="@+id/outputType_fill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txtOutputType"
+        app:layout_constraintTop_toBottomOf="@+id/txtOutputName"/>
+    <TextView
+        android:id="@+id/txt_on_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TURN ON/OFF:"
+        android:textColor="#C1D045"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtOutputID"/>
+
+    <CheckBox
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txt_on_off"
+        app:layout_constraintTop_toBottomOf="@+id/txtOutputID" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/txt_setting"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#ffffff"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:paddingTop="30dp"-->
+<!--        android:text="SETTING:"-->
+<!--        android:textColor="#C1D045"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.02"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_on_off" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_setting"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_gravity="center_vertical"-->
+<!--        android:layout_marginStart="208dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:background="#ffffff"-->
+<!--        android:src="@drawable/button_setting_item"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/txt_setting"-->
+<!--        />-->
+
+    <Button
+        android:id="@+id/item_returnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:background="#C1D045"
+        android:text="Return"
+        android:textColor="#C238EB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_on_off" />
+
+</android.support.constraint.ConstraintLayout>
