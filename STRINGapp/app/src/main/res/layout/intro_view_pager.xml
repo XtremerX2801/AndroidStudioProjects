@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/intro_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_skip"
+        android:textSize="20sp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#933DEC"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/intro_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_skip"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHeight_percent="0.8"/>
+
+    <com.make.dots.dotsindicator.DotsIndicator
+        android:id="@+id/dotsIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="#ffffff"
+        android:padding="6dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_viewPager"
+        app:dot_drawable="@drawable/dot_selected"
+        app:dot_drawable_unselected="@drawable/dot_unselected"
+        app:dot_height="8dp"
+        app:dot_margin="6dp"
+        app:dot_width="8dp" />
+
+    <TextView
+        android:id="@+id/intro_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_next"
+        android:text="@string/intro_view_pager_next"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_viewPager" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

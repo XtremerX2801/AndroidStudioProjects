@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Resources User</string>
+    <string name="mainSetting">Setting</string>
+    <string name="mainFilter">Filter</string>
+    <string name="edit_text_hint">DD-MM-YYYY</string>
+    <string name="search">Search</string>
+    <string name="fashion_style"><![CDATA[Fashion & Style]]></string>
+    <string name="sports">Sports</string>
+    <string name="arts">Arts</string>
+
+    <string-array name="sortOrder">
+        <item>Oldest</item>
+        <item>Newest</item>
+    </string-array>
+</resources>

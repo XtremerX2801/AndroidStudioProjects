@@ -4,7 +4,7 @@ import com.example.flick.Model.Youtube
 
 interface IMovieDetail {
     interface Presenter {
-        fun getTrailer(id: Int?)
+        fun getVideo(id: Int?)
     }
 
     interface View {

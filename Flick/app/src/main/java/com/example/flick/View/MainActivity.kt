@@ -28,7 +28,7 @@ class MainActivity: AppCompatActivity(), IMovieList.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter?.getNowPlaying(1)
+        presenter?.getNowPlaying()
         adapter = MainViewAdapter()
         val itemClickListener = object: onItemClickListener {
             override fun onItemClick(item: Result) {
@@ -38,11 +38,12 @@ class MainActivity: AppCompatActivity(), IMovieList.View {
             }
         }
         adapter?.setItemClickListener(itemClickListener)
-
         val mainViewRecycler: RecyclerView = findViewById(R.id.mainView)
-
         mainViewRecycler.adapter = this.adapter
         mainViewRecycler.layoutManager = LinearLayoutManager(this)
+
+        val pullRefresh: SwipeRefreshLayout = findViewById(R.id.swiftRefresh)
+        pullRefresh.isRefreshing = true
     }
 
     override fun setPresenter(presenter: IMovieList.Presenter) {
@@ -52,17 +53,25 @@ class MainActivity: AppCompatActivity(), IMovieList.View {
     override fun onResponse(movie: List<Result>?, type: Int?) {
         if (movie == null) return
 
+        val pullRefresh: SwipeRefreshLayout = findViewById(R.id.swiftRefresh)
+
         when(type)
         {
             0->{adapter?.updateSource(movie)
+                pullRefresh.isRefreshing = false
             }
             1->{
                 adapter?.addAll(movie)
+                pullRefresh.isRefreshing = false
             }
         }
     }
 
     override fun onFailure() {
         print("Error happens!")
+    }
+
+    override fun onBackPressed(){
+        this.presenter = null
     }
 }

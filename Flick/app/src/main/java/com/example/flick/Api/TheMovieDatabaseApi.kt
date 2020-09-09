@@ -9,8 +9,8 @@ import retrofit2.http.Query
 
 interface TheMovieDatabaseApi {
     @GET("movie/now_playing")
-    fun doGetListNowPlayingMovies(@Query("page") page: Int = 1): Call<Movie>
+    fun doGetListNowPlayingMovies(): Call<Movie>
 
-    @GET("movie/{movie_id}/videos")
+    @GET("movie/{movie_id}/trailers")
     fun doGetTrailer(@Path("movie_id") id: Int?): Call<Trailer>
 }

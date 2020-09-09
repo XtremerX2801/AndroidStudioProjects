@@ -9,14 +9,13 @@ import retrofit2.Response
 
 class MovieDetailPresenter(val view: IMovieDetail.View): IMovieDetail.Presenter{
 
-    override fun getTrailer(id: Int?) {
+    override fun getVideo(id: Int?) {
         api.createService().doGetTrailer(id).enqueue(object : Callback<Trailer> {
             override fun onFailure(call: Call<Trailer>?, t: Throwable?) {
-
             }
 
             override fun onResponse(call: Call<Trailer>?, response: Response<Trailer>) {
-                if (response.body() != null) {
+                if (response.body()?.youtube != null) {
                     view.onResponse(response.body()?.youtube as List<Youtube>)
                 }
             }

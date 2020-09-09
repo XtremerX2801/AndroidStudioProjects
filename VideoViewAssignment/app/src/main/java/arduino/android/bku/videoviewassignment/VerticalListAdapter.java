@@ -79,11 +79,8 @@ public class VerticalListAdapter extends RecyclerView.Adapter<VerticalListAdapte
                         System.out.println(elements.get(position).getPath());
 
                         fragmentManager.beginTransaction().replace(R.id.fullScreen, fragment).commitAllowingStateLoss();
-                    } catch (InstantiationException e){
+                    } catch (InstantiationException | IllegalAccessException e){
                         e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-
                     }
                 }
             }

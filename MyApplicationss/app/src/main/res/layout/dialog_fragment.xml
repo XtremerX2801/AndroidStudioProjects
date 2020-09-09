@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/txt_begin_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Begin Date"
+        android:textSize="15sp"
+        android:textColor="#000066"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enter_begin_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="18sp"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@id/txt_begin_date"
+        app:layout_constraintEnd_toStartOf="@id/icon_date"
+        app:layout_constraintTop_toTopOf="@id/txt_begin_date"
+        android:hint="@string/edit_text_hint"/>
+
+    <ImageButton
+        android:id="@+id/icon_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_date"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txt_begin_date" />
+
+    <TextView
+        android:id="@+id/txt_sort_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort Order"
+        android:textSize="15sp"
+        android:textColor="#000066"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_begin_date" />
+
+    <Spinner
+        android:id="@+id/dialog_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintStart_toEndOf="@id/txt_desk_value"
+        app:layout_constraintTop_toTopOf="@id/txt_sort_order" />
+
+    <TextView
+        android:id="@+id/txt_desk_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="News Desk Values"
+        android:textSize="15sp"
+        android:textColor="#000066"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sort_order" />
+
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txt_desk_value"
+        app:layout_constraintTop_toTopOf="@+id/txt_desk_value"/>
+
+    <TextView
+        android:id="@+id/txt_checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/arts"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/checkbox1"
+        app:layout_constraintTop_toTopOf="@+id/checkbox1" />
+
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@+id/txt_desk_value"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox1"/>
+
+    <TextView
+        android:id="@+id/txt_checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fashion_style"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/checkbox2"
+        app:layout_constraintTop_toTopOf="@+id/checkbox2" />
+
+    <CheckBox
+        android:id="@+id/checkbox3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@+id/txt_desk_value"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox2"/>
+
+    <TextView
+        android:id="@+id/txt_checkbox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sports"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/checkbox3"
+        app:layout_constraintTop_toTopOf="@+id/checkbox3" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:textColor="#ffffff"
+        android:background="#6600cc"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_desk_value"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="30sp"
+        android:textColor="#000066"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,8 @@ import retrofit2.Response
 
 class MovieListPresenter(var view: IMovieList.View): IMovieList.Presenter{
 
-    override fun getNowPlaying(page: Int) {
-        api.createService().doGetListNowPlayingMovies(page).enqueue(object : Callback<Movie>{
+    override fun getNowPlaying() {
+        api.createService().doGetListNowPlayingMovies().enqueue(object : Callback<Movie>{
             override fun onFailure(call: Call<Movie>?, t: Throwable?) {
                 println(t.toString())
             }

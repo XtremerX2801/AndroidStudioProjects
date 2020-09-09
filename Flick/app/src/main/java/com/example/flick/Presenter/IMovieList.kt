@@ -4,7 +4,7 @@ import com.example.flick.Model.Result
 
 interface IMovieList {
     interface Presenter {
-        fun getNowPlaying(page: Int)
+        fun getNowPlaying()
     }
 
     interface View {

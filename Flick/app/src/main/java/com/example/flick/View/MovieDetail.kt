@@ -36,9 +36,9 @@ class MovieDetail: YouTubeBaseActivity(), IMovieDetail.View {
         val detailLanguage: TextView = findViewById(R.id.detail_original_language)
         val detailOverview: TextView = findViewById(R.id.detail_overview)
 
-        presenter.getTrailer(data.id)
+        presenter.getVideo(data.id)
 
-        detailTitle.text = trailerTitle?.capitalize(Locale.ROOT)
+        detailTitle.text = trailerTitle
         detailRating.text = "Rating: " + trailerRating.toString()
         detailReleaseDay.text = "Release day: " + trailerReleaseDay
         if (trailerLanguage == "ko") {

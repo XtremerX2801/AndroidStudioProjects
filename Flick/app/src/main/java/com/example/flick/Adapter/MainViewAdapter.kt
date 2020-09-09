@@ -1,7 +1,5 @@
 package com.example.flick.Adapter
 
-import android.content.Context
-import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.flick.Model.Result
 import com.example.flick.R
 import com.bumptech.glide.request.RequestOptions
 import com.example.flick.Util.onItemClickListener
 
-class MainViewAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MainViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == 1) {
             return High_ViewHolder(
@@ -52,11 +49,11 @@ class MainViewAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    inner class ViewHolder(val normalItemView: View): RecyclerView.ViewHolder(normalItemView) {
-        val movieImage: ImageView = normalItemView.findViewById(R.id.image_normal)
-        val movieTitle: TextView = normalItemView.findViewById(R.id.title_normal)
-        val movieOverview: TextView = normalItemView.findViewById(R.id.overview_normal)
-        val normalMovieRating = normalItemView.findViewById<TextView>(R.id.normal_rating)
+    inner class ViewHolder(private val normalItemView: View): RecyclerView.ViewHolder(normalItemView) {
+        private val movieImage: ImageView = normalItemView.findViewById(R.id.image_normal)
+        private val movieTitle: TextView = normalItemView.findViewById(R.id.title_normal)
+        private val movieOverview: TextView = normalItemView.findViewById(R.id.overview_normal)
+        private val normalMovieRating: TextView = normalItemView.findViewById(R.id.normal_rating)
 
         fun bind(movieProperties: Result?) {
 
@@ -88,15 +85,19 @@ class MainViewAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    inner class High_ViewHolder(val highItemView: View): RecyclerView.ViewHolder(highItemView){
-        val highMovieImage = highItemView.findViewById<ImageView>(R.id.image_high_rate)
-        val highMovieTitle = highItemView.findViewById<TextView>(R.id.title_high_rate)
-        val highMovieRating = highItemView.findViewById<TextView>(R.id.high_rating)
+    inner class High_ViewHolder(private val highItemView: View): RecyclerView.ViewHolder(highItemView){
+        private val highMovieImage: ImageView = highItemView.findViewById(R.id.image_high_rate)
+        private val highMovieTitle: TextView = highItemView.findViewById(R.id.title_high_rate)
+        private val highMovieRating:TextView = highItemView.findViewById(R.id.high_rating)
+        private val highMoviePlayButton: ImageView = highItemView.findViewById(R.id.image_play_video)
 
         fun bind(movieProperties: Result?) {
 
             highMovieTitle.text = movieProperties?.title
             highMovieRating.text = movieProperties?.voteAverage.toString()
+            if (movieProperties?.id != null) {
+                highMoviePlayButton.setImageResource(R.drawable.play_high_video)
+            }
 
             var linkImage = "https://image.tmdb.org/t/p/"
             linkImage += ("w500" + movieProperties?.backdropPath)
@@ -107,7 +108,6 @@ class MainViewAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     .load(linkImage)
                     .fitCenter()
                     .apply(options)
-                    .transition(DrawableTransitionOptions.withCrossFade())
                     .into(highMovieImage)
 
             highItemView.setOnClickListener{

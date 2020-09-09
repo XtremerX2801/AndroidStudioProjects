@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/item_of_follow_people"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:scaleType="fitXY"
+        app:layout_constraintDimensionRatio="9:5"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <TextView
+        android:id="@+id/item_follow_people_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="@+id/item_of_follow_people"
+        app:layout_constraintTop_toTopOf="@+id/item_of_follow_people"/>
+
+    <TextView
+        android:id="@+id/follow_people_item_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_interest"
+        android:text="Follow"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintRight_toRightOf="@+id/item_of_follow_people"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/follow_people_image1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.3"
+        app:layout_constraintLeft_toLeftOf="@+id/item_of_follow_people"
+        app:layout_constraintBottom_toBottomOf="@+id/item_of_follow_people"/>
+
+    <ImageView
+        android:id="@+id/follow_people_image2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.3"
+        app:layout_constraintLeft_toRightOf="@+id/follow_people_image1"
+        app:layout_constraintBottom_toBottomOf="@+id/item_of_follow_people"/>
+
+    <ImageView
+        android:id="@+id/follow_people_image3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.3"
+        app:layout_constraintLeft_toRightOf="@+id/follow_people_image2"
+        app:layout_constraintBottom_toBottomOf="@+id/item_of_follow_people"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        android:textColor="#800000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_of_follow_people" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
