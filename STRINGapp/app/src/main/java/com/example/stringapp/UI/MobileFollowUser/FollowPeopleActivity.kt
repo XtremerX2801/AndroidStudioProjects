@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.stringapp.Adapter.UserListAdapter
@@ -28,8 +27,6 @@ class FollowPeopleActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var userListAdapter: UserListAdapter
     private lateinit var userListViewModel: StringViewModel
 
-    private var userFollowList: MutableList<Int> = arrayListOf()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_follow_people)
@@ -37,9 +34,13 @@ class FollowPeopleActivity: AppCompatActivity(), View.OnClickListener {
         userListViewModel = viewModel()
         userListAdapter = UserListAdapter()
         getUserList()
+        bindViewModel()
+
         val itemClickListener = object: onItemUserListClickListener {
             override fun onItemUserListClick(follow: TextView) {
-                userListAdapter.getUserId()?.let { userFollowList.add(it) }
+                val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPref, MODE_PRIVATE)
+                userListAdapter.getUserId()?.let { userListViewModel.getUserFollowed(it, "Bearer " + sharedPreferences.getString(accessToken, "")) }
+                Log.d("UserID",userListAdapter.getUserId().toString())
         }}
         userListAdapter.setItemClickListener(itemClickListener)
         userListAdapter.notifyDataSetChanged()
@@ -65,7 +66,6 @@ class FollowPeopleActivity: AppCompatActivity(), View.OnClickListener {
         val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPref, MODE_PRIVATE)
         Log.d("check in interest", "Bearer " + sharedPreferences.getString(accessToken, ""))
         userListViewModel.getUserList("Bearer " + sharedPreferences.getString(accessToken, ""))
-        bindViewModel()
     }
 
     private fun goBackSelectInterest(){
@@ -74,13 +74,7 @@ class FollowPeopleActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun done(){
-        val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPref, MODE_PRIVATE)
-        for (i in userFollowList){
-            userListViewModel.getUserFollowed(i, "Bearer " + sharedPreferences.getString(accessToken, ""))
-            Log.d("check follow", i.toString())
-        }
-        userFollowList.clear()
-        val intent = Intent(this@FollowPeopleActivity, MainActivity::class.java)
+        val intent = Intent(this@FollowPeopleActivity, MobileFeedActivity::class.java)
         startActivity(intent)
     }
 

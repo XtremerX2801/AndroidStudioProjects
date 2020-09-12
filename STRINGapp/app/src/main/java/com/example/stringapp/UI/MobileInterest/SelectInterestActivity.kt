@@ -36,13 +36,13 @@ class SelectInterestActivity: AppCompatActivity(), View.OnClickListener {
         interestViewModel = viewModel()
         interestAdapter = InterestAdapter()
         getUserInterest()
+        bindViewModel()
 
         val itemClickListener = object: onItemClickListener {
             override fun onItemInterestClick(item: Data) {
                 if (interestAdapter.getItemChecked()){
                     itemCount += 1
                     interest_next.text = (3 - itemCount).toString() + " more"
-                    Log.d("ItemClick", itemCount.toString())
                 } else {itemCount -= 1
                     interest_next.text = (3 - itemCount).toString() + " more"
                 }
@@ -78,7 +78,6 @@ class SelectInterestActivity: AppCompatActivity(), View.OnClickListener {
     private fun getUserInterest(){
         val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPref, MODE_PRIVATE)
         interestViewModel.getInterest("Bearer " + sharedPreferences.getString(accessToken, ""))
-        bindViewModel()
     }
 
     override fun onClick(view: View?) {

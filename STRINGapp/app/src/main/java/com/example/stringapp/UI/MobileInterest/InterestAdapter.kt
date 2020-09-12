@@ -21,6 +21,7 @@ class InterestAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var interest: MobileInterest = MobileInterest()
     private var data: MutableList<Data> = arrayListOf()
     private var itemChecked = false
+    private var checkedPosition: MutableList<Int> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyInterestViewHolder(
@@ -76,9 +77,26 @@ class InterestAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             view.setOnClickListener{
                 interestCheckbox.isChecked = !interestCheckbox.isChecked
-                Log.d("ItemClick", (interestCheckbox.isChecked).toString())
+                if (interestCheckbox.isChecked) {
+                    checkedPosition.add(adapterPosition)
+                } else {
+                    for (i in 0 until checkedPosition.size){
+                        if (checkedPosition[i] == adapterPosition) {
+                            checkedPosition.removeAt(i)
+                            break
+                        }
+                    }
+                }
                 itemCheck(interestCheckbox)
                 itemClick?.onItemInterestClick(interestData)
+            }
+
+            if (interestCheckbox.isChecked && adapterPosition !in checkedPosition){
+                interestCheckbox.isChecked = false
+            }
+
+            if (!interestCheckbox.isChecked && adapterPosition in checkedPosition){
+                interestCheckbox.isChecked = true
             }
         }
     }

@@ -2,13 +2,14 @@ package com.example.stringapp.Repository.Register
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.stringapp.Model.Result
 import com.example.stringapp.ApiService.ApiService
 import com.example.stringapp.Model.FollowUser.FollowUser
+import com.example.stringapp.Model.MobileFeed.MobileFeed
 import com.example.stringapp.Model.MobileFollow.MobileFollow
 import com.example.stringapp.Model.MobileInterest.MobileInterest
-import com.example.stringapp.Model.Register.MobileRegister
 import com.example.stringapp.Model.MobileSignIn.MobileSignIn
+import com.example.stringapp.Model.Register.MobileRegister
+import com.example.stringapp.Model.Result
 
 class Repository (private val apiService: ApiService) {
 
@@ -25,7 +26,8 @@ class Repository (private val apiService: ApiService) {
                 Log.d("check in repository", response.toString())
                 responseRegister.value = response ?: MobileRegister()
             },
-            onError = {
+            onError = {response ->
+                Log.d("Error", response)
             }
         )
         return Result(
@@ -43,7 +45,8 @@ class Repository (private val apiService: ApiService) {
                 Log.d("check in repository", response.toString())
                 responseLogin.value = response ?: MobileSignIn()
             },
-            onError = {
+            onError = {response ->
+                Log.d("Error", response)
             }
         )
         return Result(
@@ -59,7 +62,8 @@ class Repository (private val apiService: ApiService) {
                 Log.d("check in repository", response.toString())
                 responseInterest.value = response ?: MobileInterest()
             },
-            onError = {
+            onError = {response ->
+                Log.d("Error", response)
             }
         )
         return Result(
@@ -75,7 +79,8 @@ class Repository (private val apiService: ApiService) {
                 Log.d("check in repository", response.toString())
                 responseUserList.value = response ?: MobileFollow()
             },
-            onError = {
+            onError = {response ->
+                Log.d("Error", response)
             }
         )
         return Result(
@@ -92,11 +97,31 @@ class Repository (private val apiService: ApiService) {
                 Log.d("check in repository", response.toString())
                 responseUserFollowed.value = response ?: FollowUser()
             },
-            onError = {
+            onError = {response ->
+                Log.d("Error", response)
             }
         )
         return Result(
             data = responseUserFollowed
+        )
+    }
+
+    fun getMobileFeed(page: Int, current_per_page: Int, authorization: String): Result<MobileFeed> {
+        val responseMobileFeed = MutableLiveData<MobileFeed>()
+        apiService.getMobileFeed(
+            page = page,
+            current_per_page = current_per_page,
+            Authorization = authorization,
+            onSuccess = {response ->
+                Log.d("check in repository", response.toString())
+                responseMobileFeed.value = response ?: MobileFeed()
+            },
+            onError = {response ->
+                Log.d("Error", response)
+            }
+        )
+        return Result(
+            data = responseMobileFeed
         )
     }
 }

@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -11,18 +12,17 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.example.stringapp.ApiService.ApiService
 import com.example.stringapp.Fragment.ForgotPasswordFragment
-import com.example.stringapp.Fragment.ViewPagerManager
 import com.example.stringapp.Model.MobileSignIn.MobileSignIn
 import com.example.stringapp.R
-import com.example.stringapp.Repository.Register.Repository
-import com.example.stringapp.StaticVariable
+import com.example.stringapp.ViewModel.Repository
+import com.example.stringapp.Utils.StaticVariable
 import com.example.stringapp.StringApi
+import com.example.stringapp.UI.MobileInterest.SelectInterestActivity
 import com.example.stringapp.ViewModel.StringViewModel
 import com.example.stringapp.ViewModel.StringViewModelFactory
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.log_in_account.*
-import java.lang.Thread.sleep
 
 class LogInActivity: AppCompatActivity(), View.OnClickListener {
     val sharedPref = StaticVariable.SHARED_PREF
@@ -34,6 +34,7 @@ class LogInActivity: AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.log_in_account)
+        addEvent()
 
         login_cancel.setOnClickListener(this)
         login_forgot.setOnClickListener(this)
@@ -52,6 +53,9 @@ class LogInActivity: AppCompatActivity(), View.OnClickListener {
                 R.id.login_email -> login()
             }
         }
+    }
+    private fun addEvent() {
+        login_email_password_edittext.transformationMethod = PasswordTransformationMethod.getInstance()
     }
 
     private fun goToRegisterLoginActivity(){
@@ -114,11 +118,11 @@ class LogInActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     // Use these after login successfully in next activity
-    private fun loadAfterLogin(){
-        val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPref, MODE_PRIVATE)
-        // declare acc_token in onCreate
-        var acc_token: String? = sharedPreferences.getString(accessToken, "")
-    }
-
-    private fun update(){}
+//    private fun loadAfterLogin(){
+//        val sharedPreferences: SharedPreferences = getSharedPreferences(sharedPref, MODE_PRIVATE)
+//        // declare acc_token in onCreate
+//        var acc_token: String? = sharedPreferences.getString(accessToken, "")
+//    }
+//
+//    private fun update(){}
 }
